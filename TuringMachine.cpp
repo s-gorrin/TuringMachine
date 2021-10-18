@@ -208,7 +208,6 @@ State TuringMachine::fillState(std::string command) {
 
 // returns a string displaying squares with marks on them and current square
 std::string TuringMachine::tapeToString() const {
-	std::set<int>::iterator it;
 	std::string printTape = "Tape: [";
 	std::string secondPart = "]\nCurrent square: "
 		+ std::to_string(currentSquare);
@@ -217,7 +216,7 @@ std::string TuringMachine::tapeToString() const {
 		return "There was a problem with the tape.";
 
 	for (auto it = tape.begin(); it != tape.end(); it++) {
-		printTape += std::to_string(*it);
+		printTape.append(std::to_string(*it));
 		printTape.push_back(','); // I did some testing and found that
 		printTape.push_back(' '); // two push_backs is faster than append(", ")
 	}
